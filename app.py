@@ -67,7 +67,7 @@ def get_submission():
     with open(f"essentials/essential_{request.form['discordhandle']}.exefs.serials.txt", "w") as f:
         f.write(f"{request.form['sd']}\n{request.form['nand']}\n{request.form['twln']}\n{request.form['secinfo']}\n{curtime}")
 
-    return "<p>Hi</p>"
+    return "Your data has been recieved! Press Start to power off and notify a Soaper that you have completed this step."
 
 @app.route('/')
 def index():
