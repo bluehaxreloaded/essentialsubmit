@@ -60,14 +60,14 @@ def verify_password(username, password):
 @app.route('/submit', methods=['POST'])
 def get_submission():
     curtime = int(time.time())
-    print(f"essential.exefs submitted by {request.form['discordhandle']}")
-    with open(f"essentials/essential_{request.form['discordhandle']}.exefs", "wb") as f:
+    print(f"essential.exefs submitted by {request.form['pairingcode']}")
+    with open(f"essentials/essential_{request.form['pairingcode']}.exefs", "wb") as f:
         f.write(request.files['file'].read())
 
-    with open(f"essentials/essential_{request.form['discordhandle']}.exefs.serials.txt", "w") as f:
+    with open(f"essentials/essential_{request.form['pairingcode']}.exefs.serials.txt", "w") as f:
         f.write(f"{request.form['sd']}\n{request.form['nand']}\n{request.form['twln']}\n{request.form['secinfo']}\n{curtime}")
 
-    return "Your data has been recieved!\nPress Start to power off and notify a Soaper\nthat you have completed this step."
+    return "Your data has been recieved!\nPlease power off your console and notify a Soaper\nthat you have completed this step."
 
 @app.route('/')
 def index():
